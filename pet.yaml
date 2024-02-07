@@ -4,9 +4,9 @@ required:
 - photoUrls
 type: object
 properties:
-  id:
-    type: integer
-    format: int64
+  # id:
+  #   type: integer
+  #   format: int64
   # category:
   #   $ref: '#/components/schemas/Category'
   name:
@@ -39,15 +39,15 @@ example:
   - photoUrls
   - photoUrls
   name: doggie
-  id: 0
-  # category:
-  #   name: name
-  #   id: 6
-  # tags:
-  # - name: name
-  #   id: 1
-  # - name: name
-  #   id: 1
+  # id: 0
+  category:
+    name: name
+    id: 6
+  tags:
+  - name: name
+    id: 1
+  - name: name
+    id: 1
   status: available
 xml:
   name: Pet
