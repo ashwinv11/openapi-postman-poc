@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: my-service
+  description: Backend
+  tags:
+    - python
+    - my-service
+  annotations:
+    backstage.io/edit-url: https://github.com/ashwinv11/openapi-postman-poc/blob/main/catalog-info.yaml
+    github.com/project-slug: ashwinv11/openapi-postman-poc
+    github.com/team-slug: backend
+spec:
+  owner: group:backend
+  domain: platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: my-service-api
+  description: API and processing
+  tags:
+    - python
+    - my-service
+    - tier-1
+  annotations:
+    backstage.io/edit-url: https://github.com/ashwinv11/openapi-postman-poc/blob/main/catalog-info.yaml
+    github.com/project-slug: ashwinv11/openapi-postman-poc
+    github.com/team-slug: backend
+  links:
+    - title: my-service Documentation
+      url: https://google.com
+spec:
+  owner: group:backend
+  system: my-service
+  domain: platform
+  type: service
+  lifecycle: production
+  providesApis:
+    - my-service-api-endpoints
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: my-service-api-endpoints
+  description: my-service backend /api endpoints.
+  tags:
+    - python
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:backend
+  system: my-service
+  definition:
+    $openapi: ./openapi.yaml
